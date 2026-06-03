@@ -111,6 +111,11 @@
   .field input:focus,.field textarea:focus{border-color:#245F82;box-shadow:0 0 0 4px rgba(36,95,130,.16);}
   form .send{align-self:flex-start;}
   .fineprint{font-size:13px;color:var(--faint);}
+  .formresult{font-family:var(--font-mono);font-size:13px;margin:0;}
+  .formresult:empty{display:none;}
+  .formresult.err{color:#B3261E;}
+  .formthanks{font-family:var(--font-display);font-weight:600;font-size:19px;line-height:1.5;color:var(--navy);margin:0;}
+  .formthanks .sub{display:block;font-family:var(--font-mono);font-weight:400;font-size:13px;color:var(--faint);margin-top:10px;}
   .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;}
 
   /* ---- footer ---- */
@@ -209,7 +214,7 @@
         <p class="lede">Tell us what you're trying to build — it's free. Either it's a fit and we'll scope it, or it's not and we'll say so. Worth the call either way.</p>
         <a class="mailbig" href="mailto:contact@wysdomsolutions.com">contact@wysdomsolutions.com</a>
       </div>
-      <form action="https://api.web3forms.com/submit" method="POST">
+      <form id="contactform" action="https://api.web3forms.com/submit" method="POST">
         <input type="hidden" name="access_key" value="d70021f6-f0bf-432b-90b9-cb20a480291f">
         <input type="hidden" name="subject" value="New message from wysdomsolutions.com">
         <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
@@ -218,6 +223,7 @@
         <div class="field"><label for="m">Message</label><textarea id="m" name="message" placeholder="What are you trying to build? Rough notes are fine." required></textarea></div>
         <button class="btn send" type="submit">Send</button>
         <span class="fineprint">Replies usually land within a business day. Sometimes faster.</span>
+        <p class="formresult" id="formresult" role="status" aria-live="polite"></p>
       </form>
     </div>
   </section>
@@ -235,5 +241,45 @@
     </div>
   </div>
 </footer>
+
+<script>
+  (function () {
+    var form = document.getElementById("contactform");
+    if (!form) return;
+    var result = document.getElementById("formresult");
+    var btn = form.querySelector('button[type="submit"]');
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var payload = JSON.stringify(Object.fromEntries(new FormData(form)));
+      var label = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = "Sending…";
+      result.className = "formresult";
+      result.textContent = "";
+      fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: payload
+      })
+        .then(function (response) { return response.json().then(function (json) { return { ok: response.ok, json: json }; }); })
+        .then(function (res) {
+          if (res.ok && res.json.success) {
+            form.innerHTML = '<p class="formthanks">Thanks — your message is on its way.<span class="sub">We\'ll get back to you within a business day.</span></p>';
+          } else {
+            result.textContent = (res.json && res.json.message) ? res.json.message : "Something went wrong — please email contact@wysdomsolutions.com.";
+            result.className = "formresult err";
+            btn.disabled = false;
+            btn.textContent = label;
+          }
+        })
+        .catch(function () {
+          result.textContent = "Network error — please email contact@wysdomsolutions.com.";
+          result.className = "formresult err";
+          btn.disabled = false;
+          btn.textContent = label;
+        });
+    });
+  })();
+</script>
 </body>
 </html>
