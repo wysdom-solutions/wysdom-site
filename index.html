@@ -114,7 +114,7 @@
   .formresult{font-family:var(--font-mono);font-size:13px;margin:0;}
   .formresult:empty{display:none;}
   .formresult.err{color:#B3261E;}
-  .formthanks{font-family:var(--font-display);font-weight:600;font-size:19px;line-height:1.5;color:var(--navy);margin:0;}
+  .formthanks{font-family:var(--font-body);font-weight:600;font-size:19px;line-height:1.5;color:var(--navy);margin:0;}
   .formthanks .sub{display:block;font-family:var(--font-mono);font-weight:400;font-size:13px;color:var(--faint);margin-top:10px;}
   .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;}
 
@@ -264,7 +264,10 @@
         .then(function (response) { return response.json().then(function (json) { return { ok: response.ok, json: json }; }); })
         .then(function (res) {
           if (res.ok && res.json.success) {
-            form.innerHTML = '<p class="formthanks">Thanks — your message is on its way.<span class="sub">We\'ll get back to you within a business day.</span></p>';
+            var h = form.offsetHeight;
+            form.innerHTML = '<p class="formthanks">Thanks — your message is on its way.<span class="sub">We\'ll get back to you soon.</span></p>';
+            form.style.minHeight = h + "px";
+            form.style.justifyContent = "center";
           } else {
             result.textContent = (res.json && res.json.message) ? res.json.message : "Something went wrong — please email contact@wysdomsolutions.com.";
             result.className = "formresult err";
