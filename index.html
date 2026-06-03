@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wysdom Solutions — independent software studio</title>
+<meta name="description" content="Independent one-person software studio. Products of our own, and contract engineering for teams who need a senior builder to actually finish the thing.">
+<link rel="icon" href="favicon.png">
+<meta property="og:title" content="Wysdom Solutions — we ship our own software. We'll ship yours too.">
+<meta property="og:description" content="Independent software studio. Products of our own + contract engineering.">
+<meta property="og:image" content="og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="og-image.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    --accent:#C8A24A; --accent-deep:#836828; --gold-300:#DBBA5F;
+    --ink:#051C2D; --muted:#5A5749; --faint:#7C7869;
+    --bg:#FAFAF7; --card:#FFFFFF; --sunken:#F4F3EE; --hairline:#E7E5DD;
+    --navy:#0C3C5D; --navy-700:#0C3C5D; --navy-800:#082C45; --navy-900:#051C2D; --navy-950:#02121E; --maxw:1140px;
+    --font-display:'Sora',system-ui,sans-serif;
+    --font-body:'Source Sans 3',system-ui,sans-serif;
+    --font-mono:'JetBrains Mono',ui-monospace,monospace;
+  }
+  *,*::before,*::after{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-body);
+    line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 36px;}
+  a{color:inherit;}
+  ::selection{background:var(--accent);color:var(--navy-900);}
+  .btn{display:inline-flex;align-items:center;gap:9px;font-family:var(--font-display);font-weight:600;
+    font-size:15px;text-decoration:none;padding:13px 22px;border-radius:8px;cursor:pointer;border:0;
+    background:var(--navy);color:var(--bg);transition:background .16s ease,opacity .16s,color .16s;white-space:nowrap;}
+  .btn:hover{background:#154E70;}
+  .btn svg{width:16px;height:16px;}
+  .btn-gold{background:var(--accent);color:var(--navy-900);}
+  .btn-gold:hover{background:var(--gold-300);}
+
+  /* ---- hero: full navy ---- */
+  .hero{background:var(--navy);color:var(--bg);position:relative;overflow:hidden;}
+  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(160deg,transparent 40%,rgba(2,18,30,.55));pointer-events:none;}
+  .heronav{position:relative;z-index:3;}
+  .heronav .wrap{display:flex;align-items:center;justify-content:space-between;padding:24px 36px;}
+  .brand{display:flex;align-items:center;gap:13px;text-decoration:none;}
+  .brand img{height:42px;width:auto;display:block;}
+  .brandname{font-family:var(--font-display);font-weight:700;font-size:21px;color:var(--bg);letter-spacing:-.01em;}
+  .heronav nav{display:flex;align-items:center;gap:26px;}
+  .heronav nav a{font-family:var(--font-display);font-size:14px;font-weight:500;text-decoration:none;color:rgba(250,250,247,.82);}
+  .heronav nav a:hover{color:var(--gold-300);}
+
+  .owlbg{position:absolute;right:-90px;top:50%;transform:translateY(-46%);width:min(620px,52vw);
+    opacity:.10;z-index:1;pointer-events:none;}
+  .herobody{position:relative;z-index:2;padding:52px 0 100px;}
+  .eyebrow{font-family:var(--font-display);font-size:12px;font-weight:600;letter-spacing:.13em;
+    text-transform:uppercase;color:var(--gold-300);margin:0 0 26px;}
+  h1.tag{font-family:var(--font-display);font-weight:800;font-size:clamp(46px,7.2vw,90px);
+    line-height:1.0;letter-spacing:-.03em;margin:0;color:var(--bg);max-width:15ch;}
+  h1.tag .u{display:inline;background-image:linear-gradient(transparent 63%,var(--accent) 63%,var(--accent) 90%,transparent 90%);}
+  .lede{font-size:clamp(19px,2.1vw,23px);line-height:1.5;color:rgba(250,250,247,.8);max-width:46ch;margin:32px 0 0;}
+  .lede .lead-in{color:var(--bg);font-weight:600;}
+  .herorow{display:flex;align-items:center;gap:16px;margin-top:40px;flex-wrap:wrap;}
+  .maillink{font-family:var(--font-mono);font-size:14px;color:var(--gold-300);text-decoration:none;
+    border-bottom:1px solid rgba(219,186,95,.5);padding-bottom:2px;}
+  .metarow{position:relative;z-index:2;display:flex;flex-wrap:wrap;gap:0;
+    border-top:1px solid rgba(255,255,255,.14);}
+  .metarow .wrap{display:flex;flex-wrap:wrap;padding-top:22px;padding-bottom:26px;}
+  .metarow span{font-family:var(--font-mono);font-size:12.5px;color:rgba(250,250,247,.6);
+    padding-right:20px;margin-right:20px;border-right:1px solid rgba(255,255,255,.14);}
+  .metarow span:last-child{border-right:0;}
+  .metarow b{color:var(--gold-300);font-weight:500;}
+
+  /* ---- what we do (light) ---- */
+  section.work{padding:100px 0 96px;}
+  .eyebrow-d{font-family:var(--font-display);font-size:12px;font-weight:600;letter-spacing:.13em;
+    text-transform:uppercase;color:var(--accent-deep);margin:0 0 22px;}
+  .work h2{font-family:var(--font-display);font-weight:800;font-size:clamp(32px,4.2vw,50px);
+    letter-spacing:-.022em;line-height:1.05;margin:0 0 8px;color:var(--navy);max-width:18ch;}
+  .work .intro{font-size:20px;line-height:1.5;color:var(--muted);max-width:52ch;margin:18px 0 56px;}
+  .cards{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+  .card{background:var(--card);border:1px solid var(--hairline);border-radius:16px;padding:38px 36px 40px;
+    box-shadow:0 2px 6px rgba(8,44,69,.06);transition:box-shadow .2s,border-color .2s;}
+  .card:hover{box-shadow:0 16px 36px -8px rgba(8,44,69,.16),0 4px 8px rgba(8,44,69,.06);border-color:#B6C8D7;}
+  .card .icontop{display:flex;align-items:center;justify-content:space-between;margin-bottom:26px;}
+  .card .num{font-family:var(--font-mono);font-size:12px;color:var(--accent-deep);letter-spacing:.04em;}
+  .card .chip{width:44px;height:44px;border-radius:11px;background:var(--navy);display:grid;place-items:center;color:var(--gold-300);}
+  .card .chip svg{width:22px;height:22px;}
+  .card h3{font-family:var(--font-display);font-weight:700;font-size:26px;letter-spacing:-.018em;margin:0 0 13px;color:var(--navy);}
+  .card p{font-size:17px;line-height:1.55;color:var(--muted);margin:0 0 24px;}
+  .card ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:11px;border-top:1px solid var(--hairline);padding-top:20px;}
+  .card li{font-family:var(--font-mono);font-size:12.5px;color:var(--faint);line-height:1.5;padding-left:18px;position:relative;}
+  .card li::before{content:"·";position:absolute;left:4px;color:var(--accent-deep);font-weight:700;}
+
+  /* ---- contact ---- */
+  section.contact{padding:24px 0 100px;}
+  .contactgrid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start;
+    border-top:2px solid var(--navy);padding-top:60px;}
+  .contact h2{font-family:var(--font-display);font-weight:800;font-size:clamp(32px,4.2vw,50px);
+    letter-spacing:-.022em;line-height:1.04;margin:14px 0 22px;color:var(--navy);}
+  .contact .lede{margin-top:0;max-width:40ch;color:var(--muted);}
+  .contact .lede .lead-in{color:var(--ink);}
+  .contact .mailbig{font-family:var(--font-mono);font-size:15px;margin-top:26px;display:inline-block;
+    color:var(--navy);text-decoration:none;border-bottom:1px solid var(--accent);padding-bottom:2px;}
+  form{display:flex;flex-direction:column;gap:18px;}
+  .field{display:flex;flex-direction:column;gap:7px;}
+  .field label{font-family:var(--font-display);font-size:13px;font-weight:600;color:var(--ink);}
+  .field input,.field textarea{font-family:var(--font-body);font-size:15.5px;padding:12px 14px;
+    border:1px solid #D2CFC4;border-radius:8px;background:var(--card);color:var(--ink);
+    outline:none;width:100%;transition:border-color .15s,box-shadow .15s;}
+  .field textarea{resize:vertical;min-height:120px;}
+  .field input:focus,.field textarea:focus{border-color:#245F82;box-shadow:0 0 0 4px rgba(36,95,130,.16);}
+  form .send{align-self:flex-start;}
+  .fineprint{font-size:13px;color:var(--faint);}
+  .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;}
+
+  /* ---- footer ---- */
+  footer{background:var(--navy-900);color:var(--bg);padding:40px 0 32px;}
+  .footrow{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:56px;}
+  .footbrand{display:flex;align-items:center;gap:12px;margin-bottom:0;}
+  .footbrand img{height:38px;width:auto;display:block;}
+  .footname{font-family:var(--font-display);font-weight:700;font-size:19px;color:var(--bg);letter-spacing:-.01em;}
+  .footdesc{font-size:14px;color:rgba(250,250,247,.62);width:440px;max-width:100%;margin:0;line-height:1.5;text-align:right;justify-self:end;}
+  .footbase{display:flex;justify-content:space-between;align-items:center;margin-top:30px;padding-top:22px;
+    border-top:1px solid rgba(255,255,255,.12);}
+  .footbase span{font-family:var(--font-mono);font-size:12px;color:rgba(250,250,247,.5);}
+  .footbase a{font-size:13px;color:rgba(250,250,247,.6);text-decoration:none;}
+  .footbase a:hover{color:var(--accent);}
+
+  @media(max-width:840px){
+    .heronav nav a:not(.btn){display:none;}
+    .owlbg{opacity:.06;right:-160px;}
+    .cards,.contactgrid{grid-template-columns:1fr;gap:36px;}
+    .contactgrid{gap:44px;}
+    .metarow span{border-right:0;}
+    .footrow{grid-template-columns:1fr;gap:24px;}
+    .footbrand img{height:40px;}
+    .footdesc{text-align:left;width:100%;justify-self:start;}
+  }
+</style>
+</head>
+<body>
+<header class="hero" id="top">
+  <div class="heronav">
+    <div class="wrap">
+      <a class="brand" href="#top"><img src="assets/logo-mark-white-trim.png" alt=""><span class="brandname">Wysdom Solutions</span></a>
+      <nav>
+        <a href="#work">What we do</a>
+        <a href="#contact">Get in touch</a>
+      </nav>
+    </div>
+  </div>
+  <img class="owlbg" src="assets/logo-mark-white.png" alt="">
+  <div class="herobody">
+    <div class="wrap">
+      <p class="eyebrow">Independent software studio</p>
+      <h1 class="tag">We ship our own software. We'll ship <span class="u">yours</span> too.</h1>
+      <p class="lede"><span class="lead-in">One person, no overhead, no theatre.</span> Products of our own, and contract engineering for teams who need a senior builder to deliver theirs.</p>
+      <div class="herorow">
+        <a class="btn btn-gold" href="#contact">Bring us a build
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <section class="work" id="work">
+    <p class="eyebrow-d">What we do</p>
+    <h2>Two kinds of work.</h2>
+    <p class="intro">We ship our own products — and we provide the engineering expertise to help teams ship theirs too.</p>
+    <div class="cards">
+      <div class="card">
+        <div class="icontop">
+          <span class="num">01 · build-for-hire</span>
+          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg></span>
+        </div>
+        <h3>Freelance engineering</h3>
+        <p>For teams who need a senior builder who can ship without supervision. We charge for outcomes, not seat-warming.</p>
+        <ul>
+          <li>Scope it tight, then ship it — "done" beats "documented."</li>
+          <li>Code in production, a weekly update, direct access to the person writing it.</li>
+          <li>Small on purpose — one person, not a team to manage.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="icontop">
+          <span class="num">02 · our own work</span>
+          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5Z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/></svg></span>
+        </div>
+        <h3>Our own products</h3>
+        <p>We design and ship our own software, each under its own brand. The studio is the workshop behind them.</p>
+        <ul>
+          <li>Name, identity, and brand — all designed here.</li>
+          <li>Built, shipped, and supported in-house.</li>
+          <li>Games, apps, whatever the idea calls for.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="wrap">
+  <section class="contact" id="contact">
+    <div class="contactgrid">
+      <div>
+        <p class="eyebrow-d">Get in touch</p>
+        <h2>Bring us something to ship.</h2>
+        <p class="lede">Tell us what you're trying to build — it's free. Either it's a fit and we'll scope it, or it's not and we'll say so. Worth the call either way.</p>
+        <a class="mailbig" href="mailto:contact@wysdomsolutions.com">contact@wysdomsolutions.com</a>
+      </div>
+      <form action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="d70021f6-f0bf-432b-90b9-cb20a480291f">
+        <input type="hidden" name="subject" value="New message from wysdomsolutions.com">
+        <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="field"><label for="n">Name</label><input id="n" name="name" type="text" placeholder="Your name" required></div>
+        <div class="field"><label for="e">Email</label><input id="e" name="email" type="email" placeholder="you@company.com" required></div>
+        <div class="field"><label for="m">Message</label><textarea id="m" name="message" placeholder="What are you trying to build? Rough notes are fine." required></textarea></div>
+        <button class="btn send" type="submit">Send</button>
+        <span class="fineprint">Replies usually land within a business day. Sometimes faster.</span>
+      </form>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="footrow">
+      <div class="footbrand"><img src="assets/logo-mark-white-trim.png" alt=""><span class="footname">Wysdom Solutions</span></div>
+      <p class="footdesc">Independent software studio. We ship our own products, and provide engineering expertise to teams who need to ship theirs.</p>
+    </div>
+    <div class="footbase">
+      <span>© 2026 Wysdom Solutions LLC</span>
+      <a href="https://privacy.wysdomsolutions.com">Privacy</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
