@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy — Wysdom Solutions</title>
+<meta name="description" content="The company-level privacy policy for Wysdom Solutions LLC. We build software that keeps your data on your device — short version: very little.">
+<link rel="canonical" href="https://wysdomsolutions.com/privacy">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta property="og:title" content="Privacy — Wysdom Solutions">
+<meta property="og:description" content="Company-level privacy policy. We keep your data on your device.">
+<meta property="og:image" content="og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="og-image.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    --accent:#C8A24A; --accent-deep:#836828; --gold-300:#DBBA5F;
+    --ink:#051C2D; --muted:#5A5749; --faint:#7C7869;
+    --bg:#FAFAF7; --card:#FFFFFF; --sunken:#F4F3EE; --hairline:#E7E5DD;
+    --navy:#0C3C5D; --navy-700:#0C3C5D; --navy-800:#082C45; --navy-900:#051C2D; --navy-950:#02121E; --maxw:1140px;
+    --font-display:'Sora',system-ui,sans-serif;
+    --font-body:'Source Sans 3',system-ui,sans-serif;
+    --font-mono:'JetBrains Mono',ui-monospace,monospace;
+  }
+  *,*::before,*::after{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-body);
+    line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 36px;}
+  a{color:inherit;}
+  ::selection{background:var(--accent);color:var(--navy-900);}
+
+  /* ---- top bar (calm, light) ---- */
+  .topbar{background:var(--card);border-bottom:1px solid var(--hairline);}
+  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;padding:18px 36px;}
+  .topbar .brand{display:flex;align-items:center;gap:12px;text-decoration:none;}
+  .topbar .brand img{height:36px;width:auto;display:block;}
+  .topbar .brandname{font-family:var(--font-display);font-weight:700;font-size:19px;color:var(--navy);letter-spacing:-.01em;}
+  .topbar .back{font-family:var(--font-display);font-size:14px;font-weight:500;color:var(--muted);text-decoration:none;display:inline-flex;align-items:center;gap:7px;}
+  .topbar .back:hover{color:var(--accent-deep);}
+  .topbar .back svg{width:15px;height:15px;}
+
+  /* ---- legal article ---- */
+  .legal{max-width:760px;margin:0 auto;padding:60px 0 84px;}
+  .legal .eyebrow{font-family:var(--font-display);font-size:12px;font-weight:600;letter-spacing:.13em;
+    text-transform:uppercase;color:var(--accent-deep);margin:0 0 18px;}
+  .legal h1{font-family:var(--font-display);font-weight:800;font-size:clamp(34px,5vw,46px);
+    line-height:1.08;letter-spacing:-.026em;color:var(--navy);margin:0 0 18px;}
+  .legal .lead{font-size:20px;line-height:1.55;color:var(--muted);margin:0 0 20px;max-width:62ch;}
+  .legal .updated{font-family:var(--font-mono);font-size:13px;color:var(--faint);
+    display:flex;align-items:center;gap:9px;margin:0;}
+  .legal .updated .pin{width:7px;height:7px;border-radius:50%;background:var(--accent);display:inline-block;flex:none;}
+  .legal .updated b{color:var(--accent-deep);font-weight:500;}
+
+  .summary{background:var(--sunken);border:1px solid var(--hairline);border-radius:14px;
+    padding:26px 30px;margin:36px 0 4px;}
+  .summary .lbl{font-family:var(--font-display);font-size:12px;font-weight:600;letter-spacing:.13em;
+    text-transform:uppercase;color:var(--accent-deep);display:block;margin-bottom:16px;}
+  .summary ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:13px;}
+  .summary li{display:flex;align-items:flex-start;gap:12px;font-size:16px;line-height:1.5;color:var(--ink);}
+  .summary li svg{width:20px;height:20px;flex:none;color:var(--accent-deep);margin-top:2px;}
+
+  .legal h2{font-family:var(--font-display);font-weight:700;font-size:22px;letter-spacing:-.015em;
+    color:var(--navy);margin:40px 0 10px;scroll-margin-top:84px;}
+  .legal p{font-size:16.5px;line-height:1.65;color:var(--muted);margin:0 0 16px;}
+  .legal a{color:var(--navy);text-decoration:underline;text-decoration-color:var(--accent);
+    text-underline-offset:2px;}
+  .legal a:hover{color:var(--accent-deep);}
+
+  .contactblock{margin-top:48px;padding:32px 34px;background:var(--navy);border-radius:16px;color:var(--bg);}
+  .contactblock h2{color:var(--bg);margin:0 0 8px;}
+  .contactblock p{color:rgba(250,250,247,.78);margin:0 0 18px;}
+  .contactblock .mail{font-family:var(--font-mono);font-size:15px;color:var(--gold-300);
+    text-decoration:none;border-bottom:1px solid rgba(219,186,95,.5);padding-bottom:2px;display:inline-block;}
+  .contactblock .mail:hover{color:var(--gold-300);}
+  .contactblock .dev{font-family:var(--font-mono);font-size:12.5px;color:rgba(250,250,247,.5);margin-top:20px;}
+
+  /* ---- footer (shared with home) ---- */
+  footer{background:var(--navy-900);color:var(--bg);padding:40px 0 32px;}
+  .footrow{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:56px;}
+  .footbrand{display:flex;align-items:center;gap:12px;margin-bottom:0;}
+  .footbrand img{height:38px;width:auto;display:block;}
+  .footname{font-family:var(--font-display);font-weight:700;font-size:19px;color:var(--bg);letter-spacing:-.01em;}
+  .footdesc{font-size:14px;color:rgba(250,250,247,.62);width:440px;max-width:100%;margin:0;line-height:1.5;text-align:right;justify-self:end;}
+  .footbase{display:flex;justify-content:space-between;align-items:center;margin-top:30px;padding-top:22px;
+    border-top:1px solid rgba(255,255,255,.12);}
+  .footbase span{font-family:var(--font-mono);font-size:12px;color:rgba(250,250,247,.5);}
+  .footbase a{font-size:13px;color:rgba(250,250,247,.6);text-decoration:none;}
+  .footbase a:hover{color:var(--accent);}
+
+  @media(max-width:840px){
+    .legal{padding:44px 0 64px;}
+    .footrow{grid-template-columns:1fr;gap:24px;}
+    .footbrand img{height:40px;}
+    .footdesc{text-align:left;width:100%;justify-self:start;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="assets/logo-mark.png" alt=""><span class="brandname">Wysdom Solutions</span></a>
+    <a class="back" href="/">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m11 18-6-6 6-6"/></svg>
+      Back to site
+    </a>
+  </div>
+</div>
+
+<div class="wrap">
+  <article class="legal">
+    <p class="eyebrow">Privacy</p>
+    <h1>Privacy at Wysdom Solutions</h1>
+    <p class="lead">We build software that keeps your data on your device. This policy lays out what we do with information across our apps and this website, in plain language. Short version: very little.</p>
+    <p class="updated"><span class="pin"></span>Last updated <b>June 3, 2026</b></p>
+
+    <section class="summary" aria-label="At a glance">
+      <span class="lbl">At a glance</span>
+      <ul>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Our apps store your data on your device, with no accounts and no cloud.</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>This website sets no cookies and runs no analytics.</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>The only data we collect is what you send through our contact form.</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>We don't sell or rent your information. Each app has its own policy.</li>
+      </ul>
+    </section>
+
+    <h2>Who we are</h2>
+    <p>Wysdom Solutions LLC is an independent, one-person software studio in Wisconsin. We ship our own apps and take on contract engineering work. We're the "we" and "us" in this policy, and it applies to wysdomsolutions.com, this privacy policy, and the apps we publish, except where an app's own policy says otherwise.</p>
+
+    <h2>What this policy covers</h2>
+    <p>This is the company-level policy. It covers how we handle information at Wysdom Solutions, plus the principles every one of our apps follows. Each app also has its own policy with the specifics: what it stores, what it asks for, and any outside services it uses. When an app's policy gets more specific than this one, the app's policy wins. Each app's policy is published alongside that app.</p>
+
+    <h2>Our approach</h2>
+    <p>We design for privacy first, and it's not a slogan. Our apps are built to run on your device, keeping their data local instead of shipping it to servers we run. We don't operate a backend that collects your personal information, and our business doesn't depend on ads or profiling. When an app does lean on an outside service, like crash reporting or ads on a free tier, we say so plainly in that app's policy.</p>
+
+    <h2>What we collect on this website</h2>
+    <p>The only personal information this website collects is what you choose to send through our contact form: your name, your email, and your message. We use it to read your note and reply. No account, no profile, nothing clever.</p>
+
+    <h2>How our contact form works</h2>
+    <p>The contact form is handled by <a href="https://web3forms.com/privacy">Web3Forms</a>, a third-party form-delivery service. When you submit it, your name, email, and message go to Web3Forms, which forwards them to our inbox. Web3Forms forwards rather than stores submissions on our plan, runs its servers in the United States, and says it doesn't sell or share what you send. Their practices are written up at <a href="https://web3forms.com/privacy">web3forms.com/privacy</a>. Once a message reaches our inbox, it lives there, under our control (see <a href="#data-retention">Data retention</a> below).</p>
+
+    <h2>What our apps collect</h2>
+    <p>As a rule, our apps keep your data on your device and send no personal data to servers we run. No accounts, no cloud sync, no central database of users. Where an app does use an outside service, like advertising or in-app purchases, its own policy names that service and links to its policy.</p>
+
+    <h2>Cookies, analytics, and hosting</h2>
+    <p>This site sets no cookies and runs no analytics or third-party tracking. It's a static site on GitHub Pages, so GitHub, as our host, logs routine technical details like visitor IP addresses to keep the site running and secure. That's covered by <a href="https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement">GitHub's privacy statement</a>.</p>
+
+    <h2>How we use what you send</h2>
+    <p>We use what you send through the contact form only to answer you, and to follow up if we need to. We don't use it for marketing, and we don't sell or rent it.</p>
+
+    <h2>Selling, sharing, and advertising</h2>
+    <p>We don't sell your personal information. Wysdom Solutions runs no advertising business and doesn't build a profile of you. Some of our apps show ads through a third-party network, named in that app's policy. Depending on your settings and where you live, that network's use of a device ad identifier might count as "sharing" or a "sale" under laws like California's. You can rein it in through your device's privacy settings, and where an app offers it, a one-time purchase removes ads.</p>
+
+    <h2 id="data-retention">Data retention</h2>
+    <p>Your app data lives on your device for as long as the app is installed, and uninstalling clears it. Messages you send us stick around in our inbox only as long as we need them to help you and keep reasonable records. Want yours gone? Just ask (see <a href="#your-rights">Your rights</a>).</p>
+
+    <h2 id="your-rights">Your rights and choices</h2>
+    <p>Depending on where you live, including under the GDPR and CCPA, you may have the right to see, correct, or delete the personal information we hold, and to object to how we use it. Since the only thing we collect is your contact-form message, email us at <a href="mailto:privacy@wysdomsolutions.com">privacy@wysdomsolutions.com</a> and we'll find it and delete it. Our apps keep nothing on our servers, so there's nothing for us to export or delete there. Uninstalling an app wipes its local data from your device.</p>
+
+    <h2>International users</h2>
+    <p>Our contact form runs on Web3Forms' servers in the United States. If you write to us from outside the U.S., your message is transferred to and handled in the United States.</p>
+
+    <h2>Data security</h2>
+    <p>We take reasonable steps to protect what you send us. That said, no method of sending data over the internet is perfectly secure, and we can't promise absolute security.</p>
+
+    <h2>Children's privacy</h2>
+    <p>Our apps and site are made for general, adult audiences. We don't knowingly collect personal information from children under 13.</p>
+
+    <h2>Changes to this policy</h2>
+    <p>We'll update this from time to time. When we do, we'll post the new version here and change the "last updated" date up top. If a change is a big one, we'll say so.</p>
+
+    <div class="contactblock">
+      <h2>Contact</h2>
+      <p>Questions or privacy requests? Drop us a line and we'll help.</p>
+      <a class="mail" href="mailto:privacy@wysdomsolutions.com">privacy@wysdomsolutions.com</a>
+      <div class="dev">Wysdom Solutions LLC · Wisconsin, USA</div>
+    </div>
+  </article>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="footrow">
+      <div class="footbrand"><img src="assets/logo-mark-white-trim.png" alt=""><span class="footname">Wysdom Solutions</span></div>
+      <p class="footdesc">Independent software studio. We ship our own products, and provide engineering expertise to teams who need to ship theirs.</p>
+    </div>
+    <div class="footbase">
+      <span>© 2026 Wysdom Solutions LLC</span>
+      <a href="/privacy">Privacy</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
